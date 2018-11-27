@@ -1,12 +1,12 @@
 {
-    "name": "smartweb/php-package-scaffold",
-    "description": "Scaffold for creating a minimal PHP package.",
+    "name": "smartweb/{{.Name}}",
+    "description": "{{.Description}}",{{if .Author.Name}}
     "authors": [
         {
-            "name": "SmartWeb Development",
-            "email": "dev@smartweb.dk"
+            "name": "{{.Author.Name}}"{{if .Author.Email}},
+            "email": "{{.Author.Email}}"{{end}}
         }
-    ],
+    ],{{end}}
     "type": "library",
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SmartWeb\\": "src/"
+            "{{.Data.namespace}}\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SmartWeb\\Tests\\": "tests/"
+            "{{.Data.namespace}}\\Tests\\": "tests/"
         }
     },
     "config": {
