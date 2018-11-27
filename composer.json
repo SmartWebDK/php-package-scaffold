@@ -1,0 +1,44 @@
+{
+    "name": "smartweb/php-package-scaffold",
+    "description": "Scaffold for creating a minimal PHP package.",
+    "authors": [
+        {
+            "name": "SmartWeb Development",
+            "email": "dev@smartweb.dk"
+        }
+    ],
+    "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.smartweb.io/"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "phpunit/phpunit": "^7"
+    },
+    "autoload": {
+        "psr-4": {
+            "SmartWeb\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SmartWeb\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "7.1.20",
+            "ext-mbstring": "0.1"
+        }
+    }
+}
