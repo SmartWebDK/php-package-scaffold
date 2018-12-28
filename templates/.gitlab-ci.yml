@@ -12,7 +12,7 @@ build:tests:
     script:
     - 'eval $(ssh-agent -s)'
     - 'sh tools/setup-ssh.sh'
-    - "COMPOSER_VENDOR_DIR='tests-vendor/' composer -n install --no-progress --no-suggest"
+    - sh tools/composer-install.sh tests-vendor ${JENKINS_GITHUB_PERSONAL_TOKEN}
     artifacts:
         paths:
         - tests-vendor/
