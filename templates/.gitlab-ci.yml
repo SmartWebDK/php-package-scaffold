@@ -8,14 +8,14 @@ build:tests:
     cache:
         key: ${CI_COMMIT_REF_SLUG}
         paths:
-        - tests-vendor/
+        - vendor/
     script:
-    - 'eval $(ssh-agent -s)'
-    - 'sh tools/setup-ssh.sh'
-    - sh tools/composer-install.sh tests-vendor ${JENKINS_GITHUB_PERSONAL_TOKEN}
+    - eval $(ssh-agent -s)
+    - sh tools/setup-ssh.sh
+    - sh tools/composer-install.sh ${JENKINS_GITHUB_PERSONAL_TOKEN}
     artifacts:
         paths:
-        - tests-vendor/
+        - vendor/
         expire_in: 1 day
 
 test:unit:
@@ -24,4 +24,4 @@ test:unit:
     dependencies:
     - build:tests
     script:
-    - 'sh tools/run-tests.sh "tests-vendor"'
+    - php vendor/bin/phpunit --bootstrap vendor/autoload.php tests 
